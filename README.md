@@ -101,3 +101,5 @@ The first launch creates `~/.simple_cli/config.ini`; tweak that file to customiz
 
 <img width="1362" height="748" alt="Screenshot from 2025-12-03 12-03-01" src="https://github.com/user-attachments/assets/9e0b9b0f-ed53-41cf-b953-1e3060ffaba5" />
 
+<img width="1362" height="748" alt="Screenshot from 2025-12-03 12-15-25" src="https://github.com/user-attachments/assets/aeedab54-03aa-40c9-b9aa-26b533e01d98" />
+<img width="1362" height="748" alt="Screenshot from 2025-12-03 12-18-01" src="https://github.com/user-attachments/assets/eb8d01bc-d8cd-4761-ab85-493626c0d860" />
