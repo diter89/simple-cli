@@ -20,12 +20,24 @@ export FIREWORKS_API_KEY="your_api_key" (optional)
 export GEMINI_API_KEY="your_api_key" (optional)
 ```
 
-## Binary
+## Binary Download (x86_64)
 
-```bash
-# Download from releases
+1. Download `simple-cli-x86_64.zip` from the release page: (https://github.com/diter89/simple-cli/releases/tag/x86_64).
+2. Extract the archive:
+   ```bash
+   unzip simple-cli-x86_64.zip
+   ```
+3. Make sure the binary is executable (usually already is):
+   ```bash
+   chmod +x simple-cli-x86_64
+   ```
+4. Run HybridShell:
+   ```bash
+   sudo mandb
+   ./simple-cli-x86_64
+   ```
 
-```
+The first launch creates `~/.simple_cli/config.ini`; tweak that file to customize prompts, styles, and command behavior without rebuilding the binary.
 
 ## Key Bindings
 
