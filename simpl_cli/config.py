@@ -722,8 +722,53 @@ Shell wrapper + AI & bash completion"""
         try:
             parsed = json.loads(raw_value)
         except json.JSONDecodeError:
+            loose = Config._loose_sequence_parse(raw_value, default)
+            if loose is not None:
+                return loose
             return default
         return parsed
+
+    @staticmethod
+    def _loose_sequence_parse(raw_value: str, default):
+        if not isinstance(default, (list, tuple, set)):
+            return None
+
+        sample_items = list(default) if not isinstance(default, set) else list(default)
+        if sample_items and not all(isinstance(item, str) for item in sample_items):
+            return None
+
+        stripped = raw_value.strip()
+        if not (stripped.startswith("[") and stripped.endswith("]")):
+            return None
+
+        inner = stripped[1:-1]
+        if not inner.strip():
+            if isinstance(default, set):
+                return set()
+            if isinstance(default, tuple):
+                return tuple()
+            return []
+
+        items: list[str] = []
+        for part in inner.split(","):
+            normalized = part.strip()
+            if not normalized:
+                continue
+
+            if normalized[0] in {'"', "'"}:
+                normalized = normalized[1:]
+            if normalized and normalized[-1] in {'"', "'"}:
+                normalized = normalized[:-1]
+
+            normalized = normalized.strip()
+            if normalized:
+                items.append(normalized)
+
+        if isinstance(default, set):
+            return set(items)
+        if isinstance(default, tuple):
+            return tuple(items)
+        return items
 
     @staticmethod
     def _tuple_list_override(
