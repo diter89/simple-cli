@@ -31,7 +31,7 @@ export GEMINI_API_KEY="your_api_key" (optional)
    ```bash
    chmod +x simple-cli-x86_64
    ```
-4. Run HybridShell:
+4. Run simple-cli:
    ```bash
    sudo mandb
    ./simple-cli-x86_64
